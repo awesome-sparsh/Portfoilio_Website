@@ -1,0 +1,106 @@
+#sparsh sethi school project <br>
+#project to make directory of number of employees in a company<br>
+<br>
+<br>
+#functions that can be performed:<br>
+    #add new entries__made<br>
+    #view all data__made<br>
+    #count total number of entries__made<br>
+    #remove entries<br>
+    #modify entries<br>
+    #view specific data<br>
+    <br>
+<br>
+print("hello there, this is Sparsh's school computer project..")<br>
+password="1234"<br>
+answer = 'no'<br>
+print("to continue pls enter the password, to exit pls type exit ")<br>
+<br>
+inputpass=input("enter the password to access this file(it is '1234')_ ")<br>
+while inputpass!=password:<br>
+    if inputpass[0].upper()=='E':<br>
+    <br>
+        break<br>
+    else:<br>
+        print("wrong password entered, please try again")<br>
+        inputpass=input("enter the password to access this file")<br>
+        <br>
+print()    <br>
+if inputpass==password:<br>
+    print("welcome,!")<br>
+    print("in this project, we have created a set of programs")<br>
+    print("that will let you enter and manipulate your data")<br>
+    answer=input('would you like to start using the interface? ')<br>
+print()<br>
+ce=0<br>
+def view_all():<br>
+    try:<br>
+        with open("projectfile1.dat",'rb') as file1:<br>
+            import pickle<br>
+            for i in range(0,count_entries):<br>
+                read1=pickle.load(file1)<br>
+                print(read1)<br>
+    except:<br>
+        print("no data has been enterred as of now")<br>
+        <br>
+def add_data():<br>
+    answer='yes'<br>
+    with open("projectfile1.dat",'ab') as file1:<br>
+        while answer[0]=='y' or answer[0]=='Y':<br>
+            dis={}<br>
+            name=input("Enter the name of employee-: ")<br>
+            employee_number=int(input("Enter the employee number of the employee [4digit number]: "))<br>
+            department=input("Enter the department of employee-: ")<br>
+            department_role=input("Enter the role of the employee: ")<br>
+            project_status=input("enter project status, enter 'assigned' or 'free': ")<br>
+            dis['name']=name<br>
+            dis['employee_number']=employee_number<br>
+            dis['department']=department<br>
+            dis['department_role']=department_role<br>
+            dis['project_status']=project_status<br>
+            print()<br>
+            print("please check your data for errors or mistakes")<br>
+            check_idkwhy=input("press enter if satisfied with the entries")<br>
+            <br>
+            import pickle<br>
+            pickle.dump(dis,file1)<br>
+            print("employee data has been successfully updated to file database")<br>
+            print()<br>
+            answer=input("do you want to enter another entry? ")<br>
+def count_entries():<br>
+    print("number of entries are: ",ce)<br>
+    <br>
+while answer[0]=='y' or answer[0]=='Y':<br>
+    print("currently, three possible functions can be done")<br>
+    print("those functions are:")<br>
+    print("(a)dd more data")<br>
+    print("(v)iew all data")<br>
+    print("(c)ount total entries")<br>
+    print("if you do not wish to perform anymore functions,")<br>
+    print("please type exit.")<br>
+    print("select the initial of the function you wish to execute")<br>
+    do_function=input("enter the function from above list that you want to do. ")<br>
+    if do_function=="a".lower():<br>
+          add_data()<br>
+          ce+=1<br>
+    elif do_function=="c".lower():<br>
+        count_entries()<br>
+    elif do_function=="v".lower():<br>
+        view_all()<br>
+    print()<br>
+    answer=input("do you want to do more functions? if you want to exit,type 'exit'.")<br>
+    print()<br>
+else:<br>
+    print("thank you for using our interface, we hope you enjoyed it")<br>
+    print("press the cross to exit")<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>   
+
+    
+          
+         
+    

@@ -1,0 +1,61 @@
+from tkinter import * <br>
+from tkinter import font, filedialog<br>
+def saveDoc(): #saves the document<br>
+    global textarea<br>
+    text=textarea.get("1.0","end-1c")<br>
+    location=filedialog.asksaveasfilename()<br>
+    file=open(location,"w+")<br>
+    file.write(text)<br>
+    file.close()<br>
+    <br>
+## creating different functions to change font and bold text<br>
+def Algerian():<br>
+    global textarea<br>
+    textarea.config(font="Algerian")  <br>
+def Arial():<br>
+    global textarea<br>
+    textarea.config(font="Arial")  <br>
+def Courier():<br>
+    global textarea<br>
+    textarea.config(font="Courier")  <br>
+def Cambria():<br>
+    global textarea<br>
+    textarea.config(font="Cambria")<br>
+def boldDoc():<br>
+    global textarea<br>
+    textarea.config(font=('arial',14,'bold'))<br>
+    <br>
+## creating GUI     <br>
+root=Tk()<br>
+root.title("notepad by sethi")<br>
+<br>
+## creating and configuring save button<br>
+savebtn=Button(root,command=saveDoc,text="Save")<br>
+savebtn.grid(row=1,column=0)<br>
+savebtn.config(font=('arial',20,'bold'),bg="DodgerBlue2",fg="white")<br>
+<br>
+## creating and configuring font menu button<br>
+fontbtn=Menubutton(root,text="Font")<br>
+fontbtn.config(font=('arial',20,'bold'),bg="DodgerBlue2",fg="white")<br>
+fontbtn.grid(row=1,column=1)<br>
+fontbtn.menu=Menu(fontbtn,tearoff=0)<br>
+<br>
+## creating and configuring drop down menu for fontbutton<br>
+fontbtn["menu"]=fontbtn.menu<br>
+fontbtn.menu.add_checkbutton(label="Arial",<br>
+command=Arial)<br>
+fontbtn.menu.add_checkbutton(label="Algerian", <br>
+command=Algerian)<br>
+fontbtn.menu.add_checkbutton(label="Cambria", <br>
+command=Cambria)<br>
+fontbtn.menu.add_checkbutton(label="Courier",<br>
+command=Courier)<br>
+<br>
+## creating and configuring bold text button<br>
+boldbtn=Button(root,command=boldDoc,text="Bold")<br>
+boldbtn.grid(row=1,column=2)<br>
+boldbtn.config(font=('arial',20,'bold'),bg="DodgerBlue2",fg="white")<br>
+textarea=Text(root)<br>
+textarea.grid(row=2,columnspan=5)
+
+
